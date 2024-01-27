@@ -1,13 +1,13 @@
-#include<bits/stdc++.h>
+#include<bits/stdc++.h>                  // Header file
 using namespace std;
 int minFallingPathSum(vector<vector<int>>&mat,vector<vector<int>>&dp,int r,int c)
     {
-         if(c<0 || c>=mat[0].size())
+         if(c<0 || c>=mat[0].size())    // base case when we are out of the left-most column or right-most column
          return INT_MAX;
-         if(r==(mat.size()-1))
+         if(r==(mat.size()-1))         // Another base case when we are in the last row we only have one option
          return mat[r][c];
          
-         if(dp[r][c]!=INT_MAX)
+         if(dp[r][c]!=INT_MAX)       // If true means we have already solved this subproblem
          return dp[r][c];
          int le=minFallingPathSum(mat,dp,r+1,c-1);
          int mi=minFallingPathSum(mat,dp,r+1,c);
@@ -19,7 +19,7 @@ int minFallingPathSum(vector<vector<int>>&mat,vector<vector<int>>&dp,int r,int c
     }
 int main() 
 {
-    int row,col;
+    int row, col;
     
 	cout<<"Enter number of rows"<<endl;
 	cin>>row;
